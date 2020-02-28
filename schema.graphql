@@ -1,35 +1,22 @@
-
 type Query{
-	get_student(student_id : ID) : student
-    get_class(class_id : Int) : classes
+	getStudent(id: Int): Student
+    getClass(id: Int): Class
 }
 
 type Mutation{
-    create_student(student_id : ID!,
-    first_name : String,
-    last_name : String,
-    course_name : String) : [student]
-
-    create_class(class_id: Int!,
-    course_name : String,
-    student_id : Int): [classes]
-
-    add_student_to_class(
-        class_id: Int!
-        student_id: ID!
-    ): classes
+    createStudent(name: String): Student
+    createClass(name: String): Class
+    addStudentToClass(stu_id: Int, cour_id: Int): Class
 }
 
 
-type student{
-    student_id : ID!
-    first_name : String
-    last_name : String
-    course_name : String
+type Student{
+    id: Int 
+    name: String
 }
 
-type classes{
-    class_id : Int!
-    course_name : String
-    students : [student]
+type Class{
+    id: Int
+    name: String
+    students: [Student]
 }
