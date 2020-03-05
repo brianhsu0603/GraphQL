@@ -6,7 +6,7 @@ type Query{
 type Mutation{
     createStudent(name: String): Student
     createClass(name: String): Class
-    addStudentToClass(stu_id: Int, cour_id: Int): Class
+    addStudentToClass(stu_id: Int, clas_id: Int): Class
 }
 
 
